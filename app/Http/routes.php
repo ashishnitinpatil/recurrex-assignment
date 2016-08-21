@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', ['uses'=>'ProductController@index', 'as'=>'home']);
+Route::get('/home', ['uses' => 'ProductController@index', 'as' => 'home']);
 
 // User Registration & Login
 Route::auth();

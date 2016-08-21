@@ -128,10 +128,10 @@ class Product extends Model
      *
      * @return string
      */
-    public static function operationalHoursString()
+    public static function getOperationalHoursString()
     {
-        $from = DateTime::createFromFormat('H', self::OPENING_HOUR);
-        $to   = DateTime::createFromFormat('H', self::CLOSING_HOUR);
+        $from = date('ga', DateTime::createFromFormat('H', self::OPENING_HOUR)->getTimestamp());
+        $to   = date('ga', DateTime::createFromFormat('H', self::CLOSING_HOUR)->getTimestamp());
 
         return "from $from to $to";
     }

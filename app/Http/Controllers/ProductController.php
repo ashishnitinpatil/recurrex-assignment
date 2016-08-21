@@ -99,9 +99,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(15);
+        $data = [
+            'is_operational' => Product::isOperational(),
+            'operational_hours' => Product::getOperationalHoursString(),
+            'products' => Product::paginate(15),
+        ];
 
-        return view('product.index', ['products' => $products]);
+        return view('product.index', $data);
     }
 
     /**

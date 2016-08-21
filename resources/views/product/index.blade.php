@@ -7,6 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Products</div>
                 <div class="panel-body">
+                @if (!$is_operational)
+                    <p>Sorry for the inconvenience, but we only serve {{ $operational_hours }}. Please come back later :)</p>
+                @endif
                 @if ($products->count() > 0)
                     @foreach ($products as $product)
                         <p>{{ $product->name }}</p>
