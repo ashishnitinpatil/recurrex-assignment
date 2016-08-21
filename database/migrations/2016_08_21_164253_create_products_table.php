@@ -18,13 +18,13 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('SKU')->unique();
-            $table->string('description');
+            $table->text('description');
             $table->integer('price')->unsigned();
             $table->integer('stock')->unsigned();
             $table->date('date')->nullable();
-            $table->string('image')->default(Product::DEFAULT_IMAGE);
-            $table->enum('meal_course_type', [Product::STARTER, Product::MAIN_COURSE, Product::DESSERT]);
-            $table->enum('serving_time', [Product::BREAKFAST, Product::LUNCH, Product::DINNER]);
+            $table->string('image', 2083)->default(Product::DEFAULT_IMAGE);
+            $table->enum('meal_course_type', Product::getMealCourseTypes());
+            $table->enum('serving_time', Product::getServingTimes());
             $table->timestamps();
         });
     }

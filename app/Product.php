@@ -11,7 +11,7 @@ class Product extends Model
      *
      * @var string
      */
-    protected $table = 'users';
+    protected $table = 'products';
 
     /**
      * The attributes that are not mass assignable.
@@ -19,7 +19,7 @@ class Product extends Model
      * @var array
      */
     protected $guarded = [
-        'id', 'created_at', 'updated_at'
+        'id', 'created_at', 'updated_at',
     ];
 
     const DEFAULT_IMAGE = 'http://hakkaking.com/img/default_food.png';
@@ -33,4 +33,28 @@ class Product extends Model
     const BREAKFAST = 'breakfast';
     const LUNCH     = 'lunch';
     const DINNER    = 'dinner';
+
+    /**
+     * Returns all meal course types (< PHP 5.6, non-support of array constants)
+     *
+     * @return array
+     */
+    public static function getMealCourseTypes()
+    {
+        return [
+            self::STARTER, self::MAIN_COURSE, self::DESSERT,
+        ];
+    }
+
+    /**
+     * Returns all serving times (< PHP 5.6, non-support of array constants)
+     *
+     * @return array
+     */
+    public static function getServingTimes()
+    {
+        return [
+            self::BREAKFAST, self::LUNCH, self::DINNER,
+        ];
+    }
 }

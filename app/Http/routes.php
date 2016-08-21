@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => ['web']], function () {
+Route::get('/home', 'ProductController@index');
+
+// User/Admin Registration & Login
+Route::group(['middleware' => ['web'], 'as' => 'user_auth'], function () {
     // Auth Routes...
     Route::auth();
     // Admin Registration Routes...
@@ -23,4 +26,5 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/register/admin', 'Auth\AuthController@registerAdmin');
 });
 
-Route::get('/home', 'HomeController@index');
+// Products APIs
+Route::resource('product', 'ProductController');
