@@ -30,7 +30,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new authentication controller instance.
@@ -79,7 +79,6 @@ class AuthController extends Controller
     public function registerAdmin(Request $request)
     {
         $validator = $this->validator($request->all());
-
         if ($validator->fails()) {
             $this->throwValidationException(
                 $request, $validator

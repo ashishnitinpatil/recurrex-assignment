@@ -15,12 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'ProductController@index');
+Route::get('/home', ['uses'=>'ProductController@index', 'as'=>'home']);
 
-// User/Admin Registration & Login
-Route::group(['middleware' => ['web'], 'as' => 'user_auth'], function () {
-    // Auth Routes...
-    Route::auth();
+// User Registration & Login
+Route::auth();
+Route::group(['middleware' => ['web']], function () {
     // Admin Registration Routes...
     Route::get('/register/admin', 'Auth\AuthController@showAdminRegistrationForm');
     Route::post('/register/admin', 'Auth\AuthController@registerAdmin');

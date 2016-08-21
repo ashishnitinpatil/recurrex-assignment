@@ -26,6 +26,10 @@ class CreateProductsTable extends Migration
             $table->enum('meal_course_type', Product::getMealCourseTypes());
             $table->enum('serving_time', Product::getServingTimes());
             $table->timestamps();
+            // Ownership
+            $table->integer('user_id')->unsigned()->nullable();
+            // Nullable because we don't want to lose product orders even if product owner missing
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 

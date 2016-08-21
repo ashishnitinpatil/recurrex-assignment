@@ -37,6 +37,14 @@ class User extends Authenticatable
     const DEFAULT_PROFILE_PIC = 'http://viverealmeglio.it/wp-content/uploads/2015/01/uova-colesterolo.png';
 
     /**
+     * Get the products owned (created) by this User
+     */
+    public function products()
+    {
+        return $this->hasMany('App\Product');
+    }
+
+    /**
      * Checks if the User is admin
      *
      * @returns boolean

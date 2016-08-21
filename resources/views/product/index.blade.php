@@ -11,11 +11,10 @@
                     @foreach ($products as $product)
                         <p>{{ $product->name }}</p>
                     @endforeach
+                    {{ $products->links() }}
                 @else
-                    <p>No more products to show</p>
-                    @if (Auth::user()->isAdmin())
-                        <p><a href="{{ route('product.create') }}">Click here to add products</a></p>
-                    @endif
+                    <p>No products to show :(</p>
+                    <p><a href="{{ route('product.create') }}">Click here to add products if you are an admin</a></p>
                 @endif
                 </div>
             </div>

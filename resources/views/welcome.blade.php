@@ -8,7 +8,15 @@
                 <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body">
-                    Your Application's Landing Page.
+                    <button type="submit" class="btn btn-primary" onclick="location.href='/login'">
+                        <i class="fa fa-btn fa-sign-in"></i> Login
+                    </button>
+                    <button type="submit" class="btn btn-primary" onclick="location.href='/register'">
+                        <i class="fa fa-btn fa-user"></i> Register
+                    </button>
+                    <button type="submit" class="btn btn-primary" onclick="location.href='/register/admin'">
+                        <i class="fa fa-btn fa-user"></i> Register as Admin
+                    </button>
                 </div>
             </div>
         </div>
