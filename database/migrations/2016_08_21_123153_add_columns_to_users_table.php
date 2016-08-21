@@ -16,7 +16,7 @@ class AddColumnsToUsersTable extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('mobile');
-            $table->string('profile_pic')->default('http://viverealmeglio.it/wp-content/uploads/2015/01/uova-colesterolo.png');
+            $table->string('profile_pic')->default(\App\User::DEFAULT_PROFILE_PIC);
             $table->boolean('is_admin')->default(false);
         });
     }

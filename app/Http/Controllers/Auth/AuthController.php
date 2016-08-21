@@ -102,7 +102,7 @@ class AuthController extends Controller
         if (!isset($data['name']) && isset($data['first_name']) && isset($data['last_name']))
             $data['name'] = trim($data['first_name']) . ' ' . trim($data['last_name']);
         if (empty($data['profile_pic']))
-            $data['profile_pic'] = 'http://viverealmeglio.it/wp-content/uploads/2015/01/uova-colesterolo.png';
+            $data['profile_pic'] = User::DEFAULT_PROFILE_PIC;
 
         $user = User::create([
             'name' => $data['name'],

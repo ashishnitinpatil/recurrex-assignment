@@ -34,7 +34,13 @@ class User extends Authenticatable
         'is_admin', 'password', 'remember_token',
     ];
 
+    const DEFAULT_PROFILE_PIC = 'http://viverealmeglio.it/wp-content/uploads/2015/01/uova-colesterolo.png';
 
+    /**
+     * Checks if the User is admin
+     *
+     * @returns boolean
+     */
     public function isAdmin()
     {
         return $this->is_admin;
